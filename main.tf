@@ -12,7 +12,7 @@ resource "aws_elasticache_cluster" "example" {
 
 resource "aws_db_parameter_group" "default" {
   name   = "${var.ENV}-elastCache-paramGroup"
-  family = "mysql5.6"
+  family = "redis6.x"
 }
 
 resource "aws_elasticache_subnet_group" "roboshopsubnetGroup" {
