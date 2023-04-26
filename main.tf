@@ -12,10 +12,10 @@ resource "aws_elasticache_cluster" "example" {
 
 resource "aws_db_parameter_group" "default" {
   name   = "${var.ENV}-elastcache-paramgroup"
-  family = "redis6.x"
+  family = "redis6.2"
 }
 
 resource "aws_elasticache_subnet_group" "roboshopsubnetGroup" {
-  name       = "${var.ENV}_elastiCache_subnetGroup"
+  name       = "elasticache_subnetGroup-${var.ENV}"
   subnet_ids =  data.terraform_remote_state.vpc.outputs.PRVT_SUBNET_IDS
 }
