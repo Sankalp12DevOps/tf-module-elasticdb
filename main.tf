@@ -16,6 +16,6 @@ resource "aws_elasticache_parameter_group" "default" {
 }
 
 resource "aws_elasticache_subnet_group" "roboshop_subnetgroup" {
-  name       = "elasticache_subnetgroup-${var.ENV}"
+  name       = "elasticache_subnetgroup_${var.ENV}"
   subnet_ids =  data.terraform_remote_state.vpc.outputs.PRVT_SUBNET_IDS
 }
