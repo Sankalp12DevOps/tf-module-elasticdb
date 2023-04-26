@@ -6,16 +6,16 @@ resource "aws_elasticache_cluster" "example" {
   parameter_group_name = aws_db_parameter_group.default.name
   engine_version       = "6.x"
   port                 = 6379
-  subnet_group_name    = aws_elasticache_subnet_group.roboshopsubnetGroup.name
+  subnet_group_name    = aws_elasticache_subnet_group.roboshopsubnetgroup.name
   security_group_ids   = [aws_security_group.allow_tls-robosop_elastiCache.id]
 }
 
 resource "aws_db_parameter_group" "default" {
   name   = "${var.ENV}-elastcache-paramgroup"
-  family = "redis6.2"
+  family = "redis6.x"
 }
 
-resource "aws_elasticache_subnet_group" "roboshopsubnetGroup" {
-  name       = "elasticache_subnetGroup-${var.ENV}"
+resource "aws_elasticache_subnet_group" "roboshopsubnetgroup" {
+  name       = "elasticache_subnetgroup-${var.ENV}"
   subnet_ids =  data.terraform_remote_state.vpc.outputs.PRVT_SUBNET_IDS
 }
