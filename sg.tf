@@ -1,5 +1,5 @@
 resource "aws_security_group" "allow_tls-robosop_elastiCache" {
-  name        = "allow_tls"
+  name        = "allow_tls_elastic"
   description = "Allow TLS inbound traffic"
   vpc_id      = data.terraform_remote_state.vpc.outputs.ROBO_VPC_ID
 
