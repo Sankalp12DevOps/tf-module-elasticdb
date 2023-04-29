@@ -5,8 +5,8 @@ resource "aws_security_group" "allow_tls-robosop_elastiCache" {
 
   ingress {
     description      = "allow elasticCache Connection"
-    from_port        = 6379
-    to_port          = 6379
+    from_port        = var.ELASTIC_PORT
+    to_port          = var.ELASTIC_PORT
     protocol         = "tcp"
     cidr_blocks      = [data.terraform_remote_state.vpc.outputs.defaultVPCcidr,data.terraform_remote_state.vpc.outputs.vpc_cidr]
   }
